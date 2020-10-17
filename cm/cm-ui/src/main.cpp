@@ -11,12 +11,12 @@ int main(int argc, char *argv[])
 
     qmlRegisterType< cm::controllers::MasterController > ("CM", 1, 0, "MasterController");
 
-    cm::controllers::MasterController masterController;
+//    cm::controllers::MasterController masterController;
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("masterController", &masterController);
-    engine.load(QUrl(QStringLiteral("qrc:/views/MasterView")));
+//    engine.rootContext()->setContextProperty("masterController", &masterController);
+//    engine.load(QUrl(QStringLiteral("qrc:/views/MasterView")));
 
-    const QUrl url(QStringLiteral("qrc:/views/MasterView.qml"));
+    const QUrl url(QStringLiteral("qrc:views/mainWindow.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)

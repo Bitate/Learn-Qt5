@@ -17,8 +17,6 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
 add_subdirectory(cm-lib)
 add_subdirectory(cm-ui)
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
 #target_compile_definitions(cm
 #  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 #target_link_libraries(cm
