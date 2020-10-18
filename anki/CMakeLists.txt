@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(cm LANGUAGES CXX)
+set(this Anki)
+
+project(${this} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -14,10 +16,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
 
-add_subdirectory(cm-lib)
-add_subdirectory(cm-ui)
+add_subdirectory(src)
 
-#target_compile_definitions(cm
-#  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-#target_link_libraries(cm
-#  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
+add_executable(${this}
+    main.cpp
+    qml.qrc
+)
+target_link_libraries(${this}
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Quick
+)
+
