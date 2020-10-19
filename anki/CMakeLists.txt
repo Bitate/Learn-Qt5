@@ -19,6 +19,8 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
 add_subdirectory(src)
 
 add_executable(${this}
+    outputer.h
+    outputer.cpp
     main.cpp
     qml.qrc
 )

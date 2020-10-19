@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 
+
 ApplicationWindow {
     id: applicationWindow
     // title
@@ -14,8 +15,6 @@ ApplicationWindow {
             title: qsTr("File")
             MenuItem {
                 text: qsTr("Switch Profile")
-
-
             }
             MenuItem {
                 text: qsTr("Exit")
@@ -38,7 +37,10 @@ ApplicationWindow {
 
     // Content Area
 
-
+    Text {
+        id: greetings
+        text: qsTr("Hello, I'm Anki :) ")
+    }
 }
 
 /*##^##
