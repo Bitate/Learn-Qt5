@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
-
+import Myclass 1.0
 
 ApplicationWindow {
     id: applicationWindow
@@ -11,10 +11,23 @@ ApplicationWindow {
 
     // menu
     menuBar: MenuBar {
+        Outputer{
+            id: my_outputer
+        }
+
         Menu {
             title: qsTr("File")
             MenuItem {
                 text: qsTr("Switch Profile")
+                MouseArea.onClicked: {
+                    Qt.quit()
+                }
+                Component.onCompleted:{
+                    my_outputer.set_name("OK")
+                    console.log("Hello")
+                }
+
+
             }
             MenuItem {
                 text: qsTr("Exit")
@@ -24,6 +37,7 @@ ApplicationWindow {
 
         Menu {
             title: qsTr("Edit")
+
         }
 
         Menu {

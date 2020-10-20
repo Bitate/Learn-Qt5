@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<Outputer>("Outputers", 1, 0, "Outputer_1");
+    qmlRegisterType<Outputer>("Myclass", 1, 0, "Outputer");
 
     QQmlApplicationEngine engine;
 

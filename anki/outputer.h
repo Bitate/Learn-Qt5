@@ -7,24 +7,24 @@
 class Outputer : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ get_name WRITE set_name NOTIFY name_changed)
+    Q_PROPERTY(QString name READ get_name WRITE set_name)
 
 public:
     explicit Outputer(QObject *parent = nullptr);
 
-    QString get_name()
+    Q_INVOKABLE QString get_name()
     {
         return name;
     }
 
-    void set_name(QString& new_name)
+    Q_INVOKABLE void set_name(QString& new_name)
     {
         name = new_name;
     }
 
-    bool name_changed()
+    void name_changed()
     {
-        return true;
+        return;
     }
 
     QString name = "Tom";

@@ -16,6 +16,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
 
+#list(APPEND QML_DIRS ${CMAKE_SOURCE_DIR}/)
+
+#set(QML_IMPORT_PATH
+#    ${QML_DIRS}
+#    CACHE
+#    STRING "Import to QML"
+#    )
+
 add_subdirectory(src)
 
 add_executable(${this}
