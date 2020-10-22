@@ -77,3 +77,10 @@ Here is the QML code for Cell Component named Cell.qml:
      }
  }
  ```
+
+
+
+ ## Some points
+ A property alias something: id.property automatically creates a bi-directional binding. A simple rule of thumbs is: Use property alias ...:... if it is logically an alias, so the properties are intrinsically the same. This is usually the case if you want to export properties from children to the outside, or even whole children.
+
+ Using alias means use another name for property like C++ reference type declaration. The main usage of alias is to ability to export inner scope property to outer scope of object scope. Also we can use property to achieve this goal across binding feature of qml. 

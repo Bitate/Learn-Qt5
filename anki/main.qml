@@ -55,6 +55,10 @@ ApplicationWindow {
         id: greetings
         text: qsTr("Hello, I'm Anki :) ")
     }
+
+    Cell {
+
+    }
 }
 
 /*##^##
