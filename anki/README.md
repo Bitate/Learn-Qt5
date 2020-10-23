@@ -78,9 +78,13 @@ Here is the QML code for Cell Component named Cell.qml:
  }
  ```
 
-
-
+## What are signals & slots ?
+A signal is emitted when a particular event/action occurs. Qt has many predefined signals, but we can always subclass widgets to add our own handmade signals. 
+A slot is a function that is called in response to a particular signal. Qt has many pre-defined slots, but we should subclass widgets and add our own slots so that we can handle the signals that we are interested in.
+You trigger a signal, then the slot function gets called.
  ## Some points
  A property alias something: id.property automatically creates a bi-directional binding. A simple rule of thumbs is: Use property alias ...:... if it is logically an alias, so the properties are intrinsically the same. This is usually the case if you want to export properties from children to the outside, or even whole children.
 
  Using alias means use another name for property like C++ reference type declaration. The main usage of alias is to ability to export inner scope property to outer scope of object scope. Also we can use property to achieve this goal across binding feature of qml. 
+ 
+A Connections object can receive any signal from its specified target.

@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Shapes 1.12
 import Myclass 1.0
 
 ApplicationWindow {
@@ -8,61 +9,43 @@ ApplicationWindow {
     // title
     title: qsTr("Anki")
     visible: true
+    property Outputer outputer: null
 
-    // menu
-    menuBar: MenuBar {
-        Outputer{
-            id: my_outputer
-        }
+    Button {
+        id: button1
+        x: 262
+        y: 159
+        text: qsTr("Button1")
 
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("Switch Profile")
-                MouseArea.onClicked: {
-                    Qt.quit()
-                }
-                Component.onCompleted:{
-                    my_outputer.set_name("OK")
-                    console.log("Hello")
-                }
-
-
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
-
-        Menu {
-            title: qsTr("Edit")
-
-        }
-
-        Menu {
-            title: qsTr("Tools")
-        }
-
-        Menu {
-            title: qsTr("Help")
+        Connections {
+            target: button1
+            onClicked: applicationWindow.state = ""
         }
     }
-
-    // Content Area
 
     Text {
-        id: greetings
-        text: qsTr("Hello, I'm Anki :) ")
+        id: text1
+        x: 238
+        y: 295
+        width: 124
+        height: 25
+        text: qsTr("This is text")
+        font.pixelSize: 12
+
+        Connections {
+            target: text1
+            onClicked: console.log("clicked")
+        }
     }
 
-    Cell {
 
-    }
+
+
 }
+
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.6600000262260437;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.75;height:480;width:640}D{i:1}
 }
 ##^##*/

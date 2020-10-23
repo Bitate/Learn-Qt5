@@ -5,7 +5,10 @@
 #include <QDate>
 #include <QTextStream>
 
+#include <iostream>
+
 #include "outputer.h"
+#include "counter.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +21,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    const QUrl url(QStringLiteral("qrc:main.qml"));
 
     QObject::connect(
         &engine,
@@ -27,11 +30,15 @@ int main(int argc, char *argv[])
         [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
-        }, 
+        },
         Qt::QueuedConnection
     );
 
     engine.load(url);
+
+    Counter c1;
+    c1.set_value(100);
+    c1.display_to_screen();
 
     return app.exec();
 }
