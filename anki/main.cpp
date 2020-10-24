@@ -1,13 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QObject>
 #include <QTime>
 #include <QDate>
 #include <QTextStream>
 
-#include <iostream>
-
-#include "outputer.h"
 #include "counter.h"
 
 int main(int argc, char *argv[])
@@ -16,8 +14,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-
-    qmlRegisterType<Outputer>("Myclass", 1, 0, "Outputer");
 
     QQmlApplicationEngine engine;
 
@@ -34,11 +30,10 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection
     );
 
+    Counter* c1 = new Counter();
+
+    engine.rootContext()->setContextProperty("Counter", c1);
+
     engine.load(url);
-
-    Counter c1;
-    c1.set_value(100);
-    c1.display_to_screen();
-
     return app.exec();
 }

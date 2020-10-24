@@ -21,8 +21,7 @@ add_subdirectory(src)
 add_executable(${this}
     counter.cpp
     counter.h
-    outputer.h
-    outputer.cpp
+
     main.cpp
     qml.qrc
 )
