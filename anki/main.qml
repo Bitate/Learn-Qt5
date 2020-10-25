@@ -8,12 +8,15 @@ ApplicationWindow {
     title: qsTr("Anki")
     visible: true
 
-    Button {
-        id: button1
-        x: 262
-        y: 159
-        text: qsTr("Button1")
+    Text {
+        id: text_1
+        text: qsTr( Counter.display_initialization_info() )
     }
+
+
+
+
+
 }
 
 

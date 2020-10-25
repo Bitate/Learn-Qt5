@@ -10,6 +10,7 @@ class Counter : public QObject
 public:
     explicit Counter(QObject *parent = nullptr);
     void set_value(int value);
+    Q_INVOKABLE QString display_initialization_info();
 
 
 signals:

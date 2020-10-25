@@ -47,7 +47,7 @@ Here is the QML code for Cell Component named Cell.qml:
  } 
  ```
  In our main QML file, we use our Cell component to create the color picker:
- ```
+ ```qml
  import QtQuick 2.0
 
  Rectangle {
@@ -82,7 +82,38 @@ Here is the QML code for Cell Component named Cell.qml:
 A signal is emitted when a particular event/action occurs. Qt has many predefined signals, but we can always subclass widgets to add our own handmade signals. 
 A slot is a function that is called in response to a particular signal. Qt has many pre-defined slots, but we should subclass widgets and add our own slots so that we can handle the signals that we are interested in.
 You trigger a signal, then the slot function gets called.
- ## Some points
+
+
+## QML User-defined Type
+```cpp
+class Message : public QObject
+{
+    // ...
+}
+```
+
+```qml
+// Use a user-defined type in *.qml files
+Message {
+    // ...
+}
+```
+
+## Expose Properties
+* A property is a data member of a C++ class with an associated read function and optional write function.
+* A property is specified for any QObject-derived class using the Q_PROPERTY() macro. 
+* All properties of a C++ QObject-derived class are accessible from QML files.
+
+## Expose Methods
+Any method of a C++ QObject-derived class is accessible from QML code if it is:
+* A public method  with Q_INVOKABLE() macro at the beginning of the declaration.
+* A method that is a public Qt slot.
+
+## Exposing Signals
+Any public signal of a C++ QObject-derived class is accessible from QML code.
+
+
+ ## Some Unorganized Points
  A property alias something: id.property automatically creates a bi-directional binding. A simple rule of thumbs is: Use property alias ...:... if it is logically an alias, so the properties are intrinsically the same. This is usually the case if you want to export properties from children to the outside, or even whole children.
 
  Using alias means use another name for property like C++ reference type declaration. The main usage of alias is to ability to export inner scope property to outer scope of object scope. Also we can use property to achieve this goal across binding feature of qml. 
