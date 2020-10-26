@@ -12,9 +12,21 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(QT_DIR)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS
+    Core
+    Quick
+    Widgets
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
+    REQUIRED
+)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS
+    Core
+    Quick
+    Widgets
+
+    REQUIRED
+)
 
 add_subdirectory(src)
 
@@ -28,5 +40,6 @@ add_executable(${this}
 target_link_libraries(${this}
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::Widgets
 )
 

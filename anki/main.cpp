@@ -1,10 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQmlProperty>
 #include <QObject>
 #include <QTime>
 #include <QDate>
 #include <QTextStream>
+#include <QQuickView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QScrollBar>
 
 #include "counter.h"
 
@@ -17,7 +21,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    const QUrl url(QStringLiteral("qrc:main.qml"));
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     QObject::connect(
         &engine,

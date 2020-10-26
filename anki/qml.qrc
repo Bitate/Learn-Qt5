@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-
+        <file>Deck.qml</file>
+        <file>ScrollBar.qml</file>
     </qresource>
 </RCC>
